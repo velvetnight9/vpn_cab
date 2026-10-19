@@ -1,3 +1,15 @@
+# Legacy VPN cabinet
+
+Статус уточнён 19.10.2026. Этот репозиторий содержит старый cabinet frontend.
+Новый GLU cabinet развивается отдельно. Репозиторий не объявляется точной копией
+опубликованной production-статики: в неё могли вноситься адресные изменения.
+Перед восстановлением сохранять полный опубликованный HTML, JS/CSS chunks и
+import maps; checkout или образ upstream не доказывает их совпадения.
+
+Ниже — справочник самостоятельного запуска legacy-проекта. Примеры доменов и
+version tags не описывают частную инфраструктуру. Не заменять рабочую статику
+содержимым upstream/latest без проверки API и совместимости.
+
 # Bedolaga Cabinet - Web Interface
 
 Веб-интерфейс личного кабинета для VPN бота на базе [Remnawave Bedolaga Telegram Bot V3.0.0+](https://github.com/BEDOLAGA-DEV/remnawave-bedolaga-telegram-bot).
@@ -38,7 +50,7 @@ CABINET_JWT_SECRET=your_random_secret_key_here
 CABINET_ALLOWED_ORIGINS=https://cabinet.example.com
 ```
 
-Перезапустите бота после изменений.
+После изменения Docker environment пересоздайте нужный backend service; restart не перечитывает .env.
 
 ### Шаг 2. Получение frontend файлов
 
@@ -61,8 +73,8 @@ docker rm tmp_cabinet
 #### Вариант B: Сборка из исходников
 
 ```bash
-git clone https://github.com/BEDOLAGA-DEV/bedolaga-cabinet.git
-cd bedolaga-cabinet
+git clone https://github.com/velvetnight9/vpn_cab.git
+cd vpn_cab
 cp .env.example .env
 ```
 
@@ -295,8 +307,8 @@ https://cabinet.example.com {
 ## Разработка
 
 ```bash
-git clone https://github.com/BEDOLAGA-DEV/bedolaga-cabinet.git
-cd bedolaga-cabinet
+git clone https://github.com/velvetnight9/vpn_cab.git
+cd vpn_cab
 npm install
 cp .env.example .env
 # Отредактируйте .env
